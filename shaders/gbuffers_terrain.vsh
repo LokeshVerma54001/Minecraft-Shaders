@@ -9,6 +9,8 @@ uniform vec3 cameraPosition;
 uniform float frameTimeCounter;
 uniform int worldTime;
 
+in vec4 at_midBlock;
+
 out vec2 lmcoord;
 out vec2 texcoord;
 out vec4 glcolor;
@@ -44,6 +46,7 @@ void main() {
 		}
 
 		if (isGrass) {
+			// vec3 center = worldPos.xyz + at_midBlock.xyz /64.0;                     
 			float bladePos = gl_MultiTexCoord0.y;
 			float bend = pow(bladePos, 3.0);
 			offset.x = sin(phase) * 0.18 * bend;
